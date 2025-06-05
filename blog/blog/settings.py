@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'posts',
+    'authentication',
     'rest_framework',
     'knox',
 ]
@@ -127,4 +128,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',), # DRF projemizde varsayılan olarak kimlik doğrulaması yapılmış kullanıcılar dışında hiçbirinin API’yi kullanamamasını sağlar.
 }

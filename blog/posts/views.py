@@ -1,42 +1,51 @@
 # from rest_framework.views import APIView
-from rest_framework.response import Response
+# from rest_framework.response import Response
 from .models import Tag, Author, Post
 from .serializer import TagSerializer, AuthorSerializer, PostSerializer
-from rest_framework import generics
+# from rest_framework import generics
 from rest_framework import viewsets
 # from django.shortcuts import get_object_or_404
 
-class AuthorView(generics.ListCreateAPIView):
+
+class AuthorViewSet(viewsets.ModelViewSet):
     queryset = Author.objects.all()
     serializer_class = AuthorSerializer
 
-class TagView(generics.ListCreateAPIView):
+class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
     serializer_class = TagSerializer
 
-class PostView(generics.ListCreateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-class AuthorDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Author.objects.all()
-    serializer_class = AuthorSerializer
-
-class TagDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Tag.objects.all()
-    serializer_class = TagSerializer
-
-class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
 
-# class AuthorViewSet(viewsets.ModelViewSet):
+
+
+# class AuthorView(generics.ListCreateAPIView):
 #     queryset = Author.objects.all()
 #     serializer_class = AuthorSerializer
+# 
+# class TagView(generics.ListCreateAPIView):
+#     queryset = Tag.objects.all()
+#     serializer_class = TagSerializer
+# 
+# class PostView(generics.ListCreateAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
+# 
+# class AuthorDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Author.objects.all()
+#     serializer_class = AuthorSerializer
+# 
+# class TagDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Tag.objects.all()
+#     serializer_class = TagSerializer
+# 
+# class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Post.objects.all()
+#     serializer_class = PostSerializer
 
-# Yukarıda main ve detail olarak yaptığımız
-# işlemleri tek classda yapmamıza olanak tanır.
 
 #######
 
