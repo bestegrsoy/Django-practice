@@ -1,0 +1,13 @@
+@url = http://127.0.0.1:8000/posts/posts/
+
+### post
+POST {{url}}
+Content-Type: application/json
+Authorization: Token 95dd5462395bb22916b6060e60681127bc6d6393f7b0f4257c9b591bca2da4c2
+
+{
+    "title":"sabah koşusu",
+    "content":"erken koşu",
+    "is_published":true,
+    "author":2
+}

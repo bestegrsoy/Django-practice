@@ -129,4 +129,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',), # DRF projemizde varsayılan olarak kimlik doğrulaması yapılmış kullanıcılar dışında hiçbirinin API’yi kullanamamasını sağlar.
+    
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle', # anonim kullanıcılar için
+        'rest_framework.throttling.UserRateThrottle' # login olmuş kullanıcılar için
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '5/minute', # day hour vs. olarak da değiştirilebilir
+        'user': '10/minute'
+    }
+}
+
+REST_KNOX = {
+    'TOKEN_TTL': None # Tokeni süresizleştirdik
 }

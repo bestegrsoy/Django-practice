@@ -4,8 +4,8 @@ from rest_framework.routers import DefaultRouter
 
 
 router = DefaultRouter()
-router.register('posts', PostViewSet),
-router.register('authors', AuthorViewSet),
+router.register('posts', PostViewSet)
+router.register('authors', AuthorViewSet)
 router.register('tags', TagViewSet)
 
 urlpatterns = [
