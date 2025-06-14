@@ -137,7 +137,13 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'anon': '5/minute', # day hour vs. olarak da değiştirilebilir
         'user': '10/minute'
-    }
+    },
+
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 3
+
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.CursorPagination', # --created parametresiyle en yeniden eskiye şeklinde gösterir(özelleştirilebilir). Modelin created modelinin olduğunu varsayar. 
+    # 'PAGE_SIZE': 3
 }
 
 REST_KNOX = {
